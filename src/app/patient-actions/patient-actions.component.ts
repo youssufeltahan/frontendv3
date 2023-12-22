@@ -62,7 +62,7 @@ export class PatientActionsComponent implements OnInit {
 
 // Modify the getPatientSlots() method to include the slot_id
 dropPatientSlots() {
-  this.http.get(`https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patient_slots/`).subscribe(
+  this.http.get(`https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patient_slots/`).subscribe(
     (response: any) => {
       this.patientSlots = response.slots;
       
@@ -74,7 +74,7 @@ dropPatientSlots() {
 }
 
   getPatientSlots() {
-    this.http.get(`https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patient_slots/`).subscribe(
+    this.http.get(`https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patient_slots/`).subscribe(
       (response: any) => {
         this.selectedSlots = response.slots;
         console.log(this.selectedSlots)
@@ -86,7 +86,7 @@ dropPatientSlots() {
   }
 
   getDoctorSlots(docId: string) {
-    this.http.get(`https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/show_slots/${docId}`).subscribe(
+    this.http.get(`https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/show_slots/${docId}`).subscribe(
       (res: any) => {
         this.doctorSlots = res.slots;
         console.log(this.doctorSlots);
@@ -99,7 +99,7 @@ dropPatientSlots() {
   }
 
   getDoctorName() {
-    this.http.get('https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/select_doctor/').subscribe(
+    this.http.get('https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/select_doctor/').subscribe(
       (response: any) => {
         console.log(response);
         this.doctors = response.usernames;
@@ -113,7 +113,7 @@ dropPatientSlots() {
     const slotId = this.selectedSlotId;
 
     // Call your backend API to choose the slot
-    this.http.post('https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/choose_slot/', {slot_id: slotId })
+    this.http.post('https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/choose_slot/', {slot_id: slotId })
       .subscribe(
         (response: any) => {
           console.log(response);
@@ -138,7 +138,7 @@ dropPatientSlots() {
     
   
     // Call your backend API to update the appointment
-    this.http.put('https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/update_appointment/', {
+    this.http.put('https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/update_appointment/', {
       newDoctorName: newDoctorName,
       newSlotId: newSlotId,
       oldSlotId: oldSlotId,
@@ -165,7 +165,7 @@ dropPatientSlots() {
     const params = new HttpParams().set('cancelSlot', this.selectedPatientSlotId);
     console.log('Parameter value:', params.get('cancelSlot'));
 
-    this.http.delete<any>(`https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/cancel_appointment/`, {
+    this.http.delete<any>(`https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/cancel_appointment/`, {
       params:{cancelSlot: this.selectedPatientSlotId}
     }).subscribe(
       
