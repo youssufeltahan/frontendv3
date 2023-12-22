@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DoctorService {
-  private baseUrl = 'https://frontendv-3-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/'; // Replace with your actual backend API base URL
+  private baseUrl = 'https://backendphase-3-hamota-git-youssuf-el-tahan-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com'; // Replace with your actual backend API base URL
 
   constructor(private httpClient: HttpClient) {}
 
